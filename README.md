@@ -1,1 +1,1 @@
-# web-setups
+# breathing-guides-app
