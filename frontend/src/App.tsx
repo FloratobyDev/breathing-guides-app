@@ -13,13 +13,13 @@ function App() {
   });
 
   useEffect(() => {
-    axios.get("/api/hello").then((response) => {
+    axios.get("/hello").then((response) => {
       console.log(response.data);
     });
   }, []);
   return (
     <div>
-      <p className=" text-xl">App</p>
+      <p className="text-xl">App</p>
       <div>
         <p className="text-xl">Name: {personalInfo.name}</p>
         <p className="text-xl">Age: {personalInfo.age}</p>
