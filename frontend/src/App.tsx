@@ -1,31 +1,26 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./home/Home";
+import Main from "./app/Main";
 
-type PersonalInfoType = {
-  name: string;
-  age: number;
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/app",
+    element: <Main />,
+  },
+]);
 
 function App() {
-  const [personalInfo, setPersonalInfo] = useState<PersonalInfoType>({
-    name: "",
-    age: 0,
-  });
-
-  useEffect(() => {
-    axios.get("/hello").then((response) => {
-      console.log(response.data);
-    });
+  useEffect(() => {  // axios.get("/hello").then((response) => {
+    //   console.log(response.data);
+    // });
+  
   }, []);
-  return (
-    <div>
-      <p className="text-xl">App</p>
-      <div>
-        <p className="text-xl">Name: {personalInfo.name}</p>
-        <p className="text-xl">Age: {personalInfo.age}</p>
-      </div>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
