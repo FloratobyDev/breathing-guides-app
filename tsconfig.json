@@ -2,6 +2,8 @@
   "include": [
     "./frontend/src/**/*.{ts,tsx}",
     "./backend/**/*.ts",
+    "./frontend/src/custom.d.ts",
+
   ],
   "exclude": [
     "node_modules"

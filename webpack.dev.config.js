@@ -48,10 +48,8 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-        include: path.resolve(__dirname, "frontend", "src"),
-        exclude: /node_modules/,
-        type: "asset/resource",
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
