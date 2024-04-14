@@ -41,7 +41,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         include: path.resolve(__dirname, "frontend", "src"),
         exclude: /node_modules/,
         type: "asset/resource",
@@ -58,6 +58,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "frontend", "index.html"),
       filename: "index.html",
+      favicon: path.join(__dirname, "frontend", "src", "asset", "favicon.ico"),
     }),
     new DefinePlugin({
       PRODUCTION: JSON.stringify(true),

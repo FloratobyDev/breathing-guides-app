@@ -48,7 +48,7 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
       },
       {
@@ -69,6 +69,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "frontend", "index.html"),
       filename: "index.html",
+      favicon: path.resolve(__dirname, "frontend", "src", "asset", "favicon.ico"),
     }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false),

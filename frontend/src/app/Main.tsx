@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import Brand from "../components/Brand";
 import HamburgerIcon from "../svgs/HamburgerLogo";
-import Wind from "../svgs/Wind";
-import Label from "../components/Label";
-import Instructions from "../components/Instructions";
 import classNames from "classnames";
 import brandImage from "../asset/breath-image.png";
 import { TechniqueType } from "../types";
 import TechniqueInfo from "./TechniqueInfo";
+import Dropdown from "../components/Dropdown";
 
 function Main() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -207,8 +204,332 @@ function Main() {
         },
       ],
     },
+    {
+      name: "Equal Breathing",
+      description:
+        "A technique that involves equalizing the duration of inhalation and exhalation for balance and relaxation.",
+      instructions: [
+        {
+          name: "Posture",
+          description:
+            "Sit comfortably with a straight spine and relaxed shoulders.",
+        },
+        {
+          name: "Begin Breathing",
+          description:
+            "Inhale slowly and steadily through your nose for a count of four seconds.",
+        },
+        {
+          name: "Exhale",
+          description:
+            "Exhale slowly and evenly through your nose for another count of four seconds.",
+        },
+        {
+          name: "Maintain Rhythm",
+          description:
+            "Keep this equal duration for inhalation and exhalation, focusing on the rhythm of your breath.",
+        },
+        {
+          name: "Repeat",
+          description:
+            "Continue for several minutes, allowing yourself to relax deeper with each breath.",
+        },
+      ],
+    },
+    {
+      name: "Sama Vritti (Equal Breathing)",
+      description:
+        "Similar to Equal Breathing, Sama Vritti involves inhaling and exhaling for an equal duration.",
+      instructions: [
+        {
+          name: "Comfortable Seating",
+          description:
+            "Sit comfortably with a straight spine and relaxed shoulders.",
+        },
+        {
+          name: "Inhalation",
+          description: "Inhale through your nose for a count of four seconds.",
+        },
+        {
+          name: "Exhalation",
+          description:
+            "Exhale through your nose for the same count of four seconds.",
+        },
+        {
+          name: "Steady Breathing",
+          description:
+            "Maintain this equal rhythm of breathing, focusing on the smoothness and steadiness of each breath.",
+        },
+        {
+          name: "Repetition",
+          description:
+            "Repeat for several minutes, allowing your body and mind to relax with each cycle.",
+        },
+      ],
+    },
+    {
+      name: "Three-Part Breath (Dirga Pranayama)",
+      description:
+        "A yogic breathing technique that focuses on breathing deeply into three parts of the lungs: abdomen, ribcage, and upper chest.",
+      instructions: [
+        {
+          name: "Seating",
+          description:
+            "Find a comfortable seated position with a straight spine.",
+        },
+        {
+          name: "Hand Placement",
+          description:
+            "Place one hand on your abdomen and the other on your chest.",
+        },
+        {
+          name: "Inhalation",
+          description:
+            "Inhale deeply through your nose, first filling your abdomen, then expanding your ribcage, and finally lifting your chest.",
+        },
+        {
+          name: "Exhalation",
+          description:
+            "Exhale slowly and completely, reversing the process by emptying your chest, then your ribcage, and finally your abdomen.",
+        },
+        {
+          name: "Repetition",
+          description:
+            "Repeat this three-part breath for several rounds, focusing on the expansion and contraction of each area of the lungs.",
+        },
+      ],
+    },
+    {
+      name: "Breath Awareness Meditation",
+      description:
+        "A practice focusing on observing the breath without manipulation, promoting mindfulness and inner calm.",
+      instructions: [
+        {
+          name: "Comfortable Seating",
+          description:
+            "Sit comfortably with a straight spine and relaxed shoulders.",
+        },
+        {
+          name: "Focus",
+          description:
+            "Bring your attention to the sensation of breathing, without trying to change or control it.",
+        },
+        {
+          name: "Observation",
+          description:
+            "Notice the rise and fall of your chest or the sensation of air passing through your nostrils.",
+        },
+        {
+          name: "Mindfulness",
+          description:
+            "Observe any thoughts, emotions, or sensations that arise, and gently return your focus to the breath.",
+        },
+        {
+          name: "Practice",
+          description:
+            "Continue for several minutes, cultivating awareness and presence with each breath.",
+        },
+      ],
+    },
+    {
+      name: "Square Breathing",
+      description:
+        "A technique involving breathing in a square pattern to promote relaxation and stress reduction.",
+      instructions: [
+        {
+          name: "Comfortable Position",
+          description:
+            "Sit or lie down comfortably with a straight spine and relaxed shoulders.",
+        },
+        {
+          name: "Inhale",
+          description:
+            "Inhale deeply through your nose for a count of four seconds.",
+        },
+        {
+          name: "Hold",
+          description: "Hold your breath for a count of four seconds.",
+        },
+        {
+          name: "Exhale",
+          description:
+            "Exhale slowly and completely through your mouth for a count of four seconds.",
+        },
+        {
+          name: "Hold Again",
+          description:
+            "Hold your breath for another count of four seconds before beginning the next cycle of inhalation.",
+        },
+        {
+          name: "Repetition",
+          description:
+            "Continue this pattern of breathing for several minutes, allowing yourself to relax deeply with each breath.",
+        },
+      ],
+    },
+    {
+      name: "Progressive Muscle Relaxation",
+      description:
+        "A technique involving tensing and relaxing muscle groups sequentially to promote physical and mental relaxation.",
+      instructions: [
+        {
+          name: "Comfortable Seating",
+          description:
+            "Sit in a comfortable chair with your feet flat on the floor and your hands resting on your thighs.",
+        },
+        {
+          name: "Focus",
+          description: "Close your eyes and take a few deep breaths to relax.",
+        },
+        {
+          name: "Muscle Tensing",
+          description:
+            "Begin by tensing the muscles in your toes and feet, holding the tension for a few seconds.",
+        },
+        {
+          name: "Relaxation",
+          description:
+            "Release the tension and allow the muscles to relax completely.",
+        },
+        {
+          name: "Progression",
+          description:
+            "Continue this process, gradually moving up through the body, tensing and relaxing each muscle group.",
+        },
+        {
+          name: "Completion",
+          description:
+            "Finish by taking a few deep breaths and enjoying the overall sense of relaxation in your body.",
+        },
+      ],
+    },
+    {
+      name: "Diaphragmatic Breathing",
+      description:
+        "A technique that focuses on deep breathing from the diaphragm to promote relaxation and reduce stress.",
+      instructions: [
+        {
+          name: "Posture",
+          description:
+            "Sit or lie down comfortably with your spine straight and shoulders relaxed.",
+        },
+        {
+          name: "Hand Placement",
+          description:
+            "Place one hand on your chest and the other on your abdomen, just below your ribcage.",
+        },
+        {
+          name: "Inhale",
+          description:
+            "Inhale deeply through your nose, allowing your abdomen to rise and expand.",
+        },
+        {
+          name: "Exhale",
+          description:
+            "Exhale slowly through your mouth, allowing your abdomen to fall and contract.",
+        },
+        {
+          name: "Practice",
+          description:
+            "Continue this deep breathing pattern for several minutes, focusing on the sensation of relaxation with each breath.",
+        },
+      ],
+    },
+    {
+      name: "Resonant Breathing",
+      description:
+        "A technique that involves breathing at a specific rate to stimulate the body's natural relaxation response.",
+      instructions: [
+        {
+          name: "Position",
+          description:
+            "Sit or lie down comfortably with a straight spine and relaxed shoulders.",
+        },
+        {
+          name: "Find Your Rhythm",
+          description:
+            "Inhale and exhale naturally, paying attention to the length of each breath.",
+        },
+        {
+          name: "Determine Ratio",
+          description:
+            "Gradually adjust your breathing to find a comfortable ratio, such as inhaling for four counts and exhaling for six counts.",
+        },
+        {
+          name: "Maintain Consistency",
+          description:
+            "Continue breathing at this ratio for several minutes, allowing your body to synchronize with the rhythm.",
+        },
+        {
+          name: "Awareness",
+          description:
+            "Notice any changes in your state of relaxation and well-being as you practice resonant breathing.",
+        },
+      ],
+    },
+    {
+      name: "Buteyko Breathing Technique",
+      description:
+        "A method that emphasizes nasal breathing and reduced breathing volume to improve oxygenation and reduce stress.",
+      instructions: [
+        {
+          name: "Nasal Breathing",
+          description:
+            "Sit comfortably with a straight spine and close your mouth, breathing exclusively through your nose.",
+        },
+        {
+          name: "Shallow Breathing",
+          description:
+            "Focus on breathing lightly and shallowly, using the minimum amount of air necessary.",
+        },
+        {
+          name: "Relaxation",
+          description:
+            "Allow your breathing to become calm and gentle, maintaining a relaxed state.",
+        },
+        {
+          name: "Consistency",
+          description:
+            "Practice nasal breathing and reduced breathing volume throughout the day to improve respiratory efficiency and reduce stress.",
+        },
+      ],
+    },
+    {
+      name: "Coherent Breathing",
+      description:
+        "A technique that involves breathing at a specific rate to achieve a harmonious balance between the sympathetic and parasympathetic nervous systems.",
+      instructions: [
+        {
+          name: "Position",
+          description:
+            "Sit comfortably with a straight spine and relaxed shoulders.",
+        },
+        {
+          name: "Inhalation",
+          description:
+            "Inhale slowly and deeply through your nose for a count of six seconds.",
+        },
+        {
+          name: "Exhalation",
+          description:
+            "Exhale slowly and completely through your nose for the same count of six seconds.",
+        },
+        {
+          name: "Rhythm",
+          description:
+            "Continue breathing at this steady rate, maintaining a smooth and even flow of breath.",
+        },
+        {
+          name: "Relaxation",
+          description:
+            "Allow your body and mind to relax deeply as you synchronize your breathing with the coherent rhythm.",
+        },
+      ],
+    },
   ]);
-  const [selectedTechnique, setSelectedTechnique] = useState<TechniqueType>(techniques[0]);
+  const [selectedTechnique, setSelectedTechnique] = useState<TechniqueType>(
+    techniques[0]
+  );
 
   const handleOpen = () => {
     setOpenDrawer(!openDrawer);
@@ -221,43 +542,85 @@ function Main() {
     }
   );
 
+  const [filters, setFilters] = useState<string[]>([
+    "By Name",
+    "By Technique",
+    "By Duration",
+    "By Difficulty",
+  ]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [showFilters, setShowFilters] = useState(false);
+
+  const purposeValues = [
+    "Relaxation",
+    "Stress Relief",
+    "Focus",
+    "Energy",
+    "Sleep",
+  ];
+
   return (
     <div className=" bg-primary min-h-screen flex">
       <div className="basis-1/5 sticky h-screen top-0 bg-background p-12 hidden lg:flex flex-col">
         <img
           src={brandImage}
           alt=""
-          className="h-44 w-44 relative top-4 self-center"
+          className="h-44 w-44 relative top-4 self-center z-20"
         />
-        <div className="bg-primary rounded-md text-xs md:text-[16px] flex justify-between px-4 py-2 relative">
+        <div className="bg-primary rounded-md text-xs md:text-[16px] flex justify-between px-4 py-2 relative font-semibold">
           <input
             type="text"
             placeholder="Search by name..."
-            className="placeholder:font-kodchasan placeholder:text-background focus:placeholder:opacity-0 outline-none"
+            className="placeholder:font-kodchasan placeholder:text-background focus:placeholder:opacity-0 outline-none bg-transparent"
           />
-          <HamburgerIcon onClick={handleOpen} />
-          <div className="absolute bg-blue-200 right-0 top-11 rounded-md p-2">
-            <p>hello</p>
-            <p>hello</p>
-            <p>hello</p>
-          </div>
         </div>
-        <div className="bg-primary rounded-md text-xs md:text-[16px] flex flex-col overflow-auto justify-between mt-2 flex-1">
+        <div className="grid grid-cols-2 gap-1 my-1">
+          <Dropdown
+            label="Purpose"
+            values={purposeValues}
+            onSubmit={(value) => {
+              console.log("value", value);
+            }}
+          />
+          <Dropdown
+            label="Purpose"
+            values={purposeValues}
+            onSubmit={(value) => {
+              console.log("value", value);
+            }}
+          />
+          <Dropdown
+            label="Purpose"
+            values={purposeValues}
+            onSubmit={(value) => {
+              console.log("value", value);
+            }}
+          />
+          <Dropdown
+            label="Purpose"
+            values={purposeValues}
+            onSubmit={(value) => {
+              console.log("value", value);
+            }}
+          />
+        </div>
+        <div className="bg-primary rounded-md text-xs md:text-[16px] flex flex-col overflow-auto justify-between flex-1">
           <div className="overflow-auto px-2 py-2 ">
             {techniques.map((technique) => {
-              const techniqueClass = classNames("p-2 rounded-md cursor-pointer text-background", {
-                "bg-secondary text-primary": selectedTechnique?.name === technique.name,
-
-              });
+              const techniqueClass = classNames(
+                "p-2 rounded-md cursor-pointer text-background",
+                {
+                  "bg-secondary text-primary":
+                    selectedTechnique?.name === technique.name,
+                }
+              );
               return (
                 <div
                   key={technique.name}
                   className={techniqueClass}
                   onClick={() => setSelectedTechnique(technique)}
                 >
-                  <p className="font-kodchasan select-none">
-                    {technique.name}
-                  </p>
+                  <p className="font-kodchasan select-none">{technique.name}</p>
                 </div>
               );
             })}
