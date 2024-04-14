@@ -1,5 +1,5 @@
 import React from "react";
-import Wind from "../../svgs/Wind";
+import Wind from "../svgs/Wind";
 
 function Brand() {
   return (
