@@ -63,6 +63,7 @@ module.exports = {
     extensions: [".js", ".jsx", ".tsx"],
     plugins: [new TsconfigPathsPlugin()],
   },
+  stats: "errors-only",
   devtool: "inline-source-map",
   mode: "development",
   plugins: [

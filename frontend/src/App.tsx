@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./home/Home";
 import Main from "./app/Main";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +16,14 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  useEffect(() => {  // axios.get("/hello").then((response) => {
-    //   console.log(response.data);
-    // });
+  useEffect(() => {
+    axios.get("/api/techniques").then((response) => {
+      console.log(response.data);
+    });
   
   }, []);
+
+  
   return <RouterProvider router={router} />;
 }
 
