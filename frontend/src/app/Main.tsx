@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import HamburgerIcon from "../svgs/HamburgerLogo";
 import classNames from "classnames";
-import brandImage from "../asset/breath-image.png";
 import { TechniqueType } from "../types";
 import TechniqueInfo from "./TechniqueInfo";
-import Dropdown from "../components/Dropdown";
+import Sidebar from "./Sidebar";
 
 function Main() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -536,20 +534,11 @@ function Main() {
   };
 
   const drawerClass = classNames(
-    "fixed right-0 top-0 translate-x-0 min-h-screen w-[90%] bg-background all-transition duration-200 p-6 flex flex-col",
+    "fixed right-0 top-0 translate-x-0 h-screen w-[90%] bg-background all-transition duration-200 p-6 flex flex-col",
     {
       "translate-x-full": !openDrawer,
     }
   );
-
-  const [filters, setFilters] = useState<string[]>([
-    "By Name",
-    "By Technique",
-    "By Duration",
-    "By Difficulty",
-  ]);
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [showFilters, setShowFilters] = useState(false);
 
   const purposeValues = [
     "Relaxation",
@@ -562,70 +551,12 @@ function Main() {
   return (
     <div className=" bg-primary min-h-screen flex">
       <div className="basis-1/5 sticky h-screen top-0 bg-background p-12 hidden lg:flex flex-col">
-        <img
-          src={brandImage}
-          alt=""
-          className="h-44 w-44 relative top-4 self-center z-20"
+        <Sidebar
+          techniques={techniques}
+          purposeValues={purposeValues}
+          selectedTechnique={selectedTechnique}
+          setSelectedTechnique={setSelectedTechnique}
         />
-        <div className="bg-primary rounded-md text-xs md:text-[16px] flex justify-between px-4 py-2 relative font-semibold">
-          <input
-            type="text"
-            placeholder="Search by name..."
-            className="placeholder:font-kodchasan placeholder:text-background focus:placeholder:opacity-0 outline-none bg-transparent"
-          />
-        </div>
-        <div className="grid grid-cols-2 gap-1 my-1">
-          <Dropdown
-            label="Purpose"
-            values={purposeValues}
-            onSubmit={(value) => {
-              console.log("value", value);
-            }}
-          />
-          <Dropdown
-            label="Purpose"
-            values={purposeValues}
-            onSubmit={(value) => {
-              console.log("value", value);
-            }}
-          />
-          <Dropdown
-            label="Purpose"
-            values={purposeValues}
-            onSubmit={(value) => {
-              console.log("value", value);
-            }}
-          />
-          <Dropdown
-            label="Purpose"
-            values={purposeValues}
-            onSubmit={(value) => {
-              console.log("value", value);
-            }}
-          />
-        </div>
-        <div className="bg-primary rounded-md text-xs md:text-[16px] flex flex-col overflow-auto justify-between flex-1">
-          <div className="overflow-auto px-2 py-2 ">
-            {techniques.map((technique) => {
-              const techniqueClass = classNames(
-                "p-2 rounded-md cursor-pointer text-background",
-                {
-                  "bg-secondary text-primary":
-                    selectedTechnique?.name === technique.name,
-                }
-              );
-              return (
-                <div
-                  key={technique.name}
-                  className={techniqueClass}
-                  onClick={() => setSelectedTechnique(technique)}
-                >
-                  <p className="font-kodchasan select-none">{technique.name}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
       {selectedTechnique && (
         <TechniqueInfo
@@ -661,19 +592,15 @@ function Main() {
             fill="#FCFEED"
           />
         </svg>
-        <img
-          src={brandImage}
-          alt=""
-          className="h-32 w-32 relative top-4 self-center"
+        <Sidebar
+          techniques={techniques}
+          purposeValues={purposeValues}
+          selectedTechnique={selectedTechnique}
+          setSelectedTechnique={setSelectedTechnique}
+          onSubmit={() => {
+            setOpenDrawer(false);
+          }}
         />
-        <div className="bg-primary rounded-md text-xs flex justify-between px-4 py-2">
-          <input
-            type="text"
-            placeholder="Search by name..."
-            className="placeholder:font-kodchasan placeholder:text-background outline-none"
-          />
-          <HamburgerIcon onClick={handleOpen} />
-        </div>
       </div>
     </div>
   );
