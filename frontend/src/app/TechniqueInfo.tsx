@@ -23,10 +23,10 @@ function TechniqueInfo({
         </div>
         <HamburgerLogo onClick={handleOpen} />
       </div>
-      <div className="p-6 flex flex-col gap-y-4 md:mx-auto md:w-[80%]">
+      <div className="p-6 md:py-12 flex flex-col gap-y-4 md:mx-auto md:w-[80%]">
         <Label label="NAME">
           <p className="text-xs md:text-lg font-kodchasan text-background">
-            {selectedTechnique.name}
+            {selectedTechnique.technique_name}
           </p>
         </Label>
         <Label label="DESCRIPTION">

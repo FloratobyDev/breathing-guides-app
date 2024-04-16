@@ -39,7 +39,7 @@ function Dropdown({ label, values, onSubmit }: Props) {
       onClick={() => setShow(!show)}
     >
       <div className="flex justify-between items-center font-kodchasan">
-        <p className="text-xs md:text-sm font-semibold">{combinedLabels || label}</p>
+        <p className="text-xs md:text-sm font-semibold capitalize">{combinedLabels || label}</p>
         <svg
           className={svgClass}
           width="10"
@@ -58,7 +58,7 @@ function Dropdown({ label, values, onSubmit }: Props) {
         <div className="absolute top-9 rounded-md shadow-md inset-x-0 bg-primary p-1 z-10 my-1">
           {values.map((value) => {
             const pClasses = classNames(
-              "px-2 py-1.5 my-0.5 rounded-md hover:bg-secondary hover:text-primary cursor-pointer font-kodchasan text-xs md:text-sm ",
+              "px-2 py-1.5 my-0.5 rounded-md hover:bg-secondary hover:text-primary cursor-pointer font-kodchasan text-xs md:text-sm capitalize",
               {
                 "bg-secondary text-primary": selectLabels.includes(value),
               }

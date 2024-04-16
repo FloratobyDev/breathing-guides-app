@@ -11,11 +11,11 @@ type Props = {
 
 function Instructions({ instructions }: Props) {
   return (
-    <div className="flex flex-col  px-2.5">
+    <div className="flex flex-col px-4">
       <ol className="list-decimal bold-marker font-kodchasan text-xs md:text-lg space-y-2">
         {instructions.map((instruction, index) => (
           <li key={index}>
-            <span className=" font-bold text-background">
+            <span className="font-bold text-background">
               {instruction.name}
             </span>
             <p className="text-background">{instruction.description}</p>

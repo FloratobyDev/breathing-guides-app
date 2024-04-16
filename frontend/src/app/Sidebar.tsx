@@ -1,24 +1,55 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "../components/Dropdown";
 import brandImage from "../asset/breath-image.png";
-import { TechniqueType } from "../types";
+import { FilterType, TechniqueType } from "../types";
+
+export enum FilterEnum {
+  purpose = "purpose",
+  difficulty = "difficulty",
+  duration = "duration",
+  culture = "culture",
+}
 
 type Props = {
   techniques: TechniqueType[];
-  purposeValues: string[];
   selectedTechnique: TechniqueType | null;
   setSelectedTechnique: (technique: TechniqueType) => void;
+  setFilters: (filter: any) => void;
+  filters: FilterType;
   onSubmit?: () => void;
 };
 
 function Sidebar({
   techniques,
-  purposeValues,
   selectedTechnique,
   setSelectedTechnique,
+  filters,
+  setFilters,
   onSubmit,
 }: Props) {
+  const purposeValues = ["relaxation", "focus"];
+  const difficultyValues = ["easy", "medium", "hard"];
+  const cultureValues = ["western", "eastern"];
+  const durationValues = ["5", "10", "15", "20", "30"];
+
+  function updateFilters(value: string, filterType: FilterEnum) {
+    setFilters((prevFilters: FilterType) => {
+      if (prevFilters[filterType].includes(value)) {
+        return {
+          ...prevFilters,
+          [filterType]: prevFilters[filterType].filter(
+            (purpose) => purpose !== value
+          ),
+        };
+      }
+      return {
+        ...prevFilters,
+        [filterType]: [...prevFilters[filterType], value],
+      };
+    });
+  }
+
   return (
     <>
       <img
@@ -30,36 +61,45 @@ function Sidebar({
         <input
           type="text"
           placeholder="Search by name..."
+          value={filters.name}
+          onChange={(e) => {
+            setFilters((prevFilter: FilterType) => {
+              return {
+                ...prevFilter,
+                name: e.target.value,
+              };
+            });
+          }}
           className="placeholder:font-kodchasan placeholder:text-background focus:placeholder:opacity-0 outline-none bg-transparent"
         />
       </div>
       <div className="grid grid-cols-2 gap-1 my-1">
         <Dropdown
-          label="Purpose"
+          label="By Purpose"
           values={purposeValues}
           onSubmit={(value) => {
-            console.log("value", value);
+            updateFilters(value, FilterEnum.purpose);
           }}
         />
         <Dropdown
-          label="Purpose"
-          values={purposeValues}
+          label="By Difficulty"
+          values={difficultyValues}
           onSubmit={(value) => {
-            console.log("value", value);
+            updateFilters(value, FilterEnum.difficulty);
           }}
         />
         <Dropdown
-          label="Purpose"
-          values={purposeValues}
+          label="By Duration"
+          values={durationValues}
           onSubmit={(value) => {
-            console.log("value", value);
+            updateFilters(value, FilterEnum.duration);
           }}
         />
         <Dropdown
-          label="Purpose"
-          values={purposeValues}
+          label="By Culture"
+          values={cultureValues}
           onSubmit={(value) => {
-            console.log("value", value);
+            updateFilters(value, FilterEnum.culture);
           }}
         />
       </div>
@@ -70,19 +110,22 @@ function Sidebar({
               "p-2 rounded-md cursor-pointer text-background",
               {
                 "bg-secondary text-primary":
-                  selectedTechnique?.name === technique.name,
+                  selectedTechnique?.technique_name ===
+                  technique.technique_name,
               }
             );
             return (
               <div
-                key={technique.name}
+                key={technique.technique_name}
                 className={techniqueClass}
                 onClick={() => {
                   onSubmit && onSubmit();
                   setSelectedTechnique(technique);
                 }}
               >
-                <p className="font-kodchasan select-none">{technique.name}</p>
+                <p className="font-kodchasan select-none">
+                  {technique.technique_name}
+                </p>
               </div>
             );
           })}
