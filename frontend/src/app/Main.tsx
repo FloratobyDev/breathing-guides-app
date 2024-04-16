@@ -96,7 +96,7 @@ function Main() {
 
   return (
     <div className=" bg-primary min-h-screen flex">
-      <div className="basis-1/5 sticky h-screen top-0 bg-background p-12 hidden lg:flex flex-col">
+      <div className="sticky h-screen top-0 bg-background p-12 hidden lg:flex flex-col">
         <Sidebar
           techniques={filteredTechniques}
           selectedTechnique={selectedTechnique}

@@ -11,10 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/hello", breathController.getBreath);
 app.get("/api/techniques", breathController.getTechniques);
 
-app.get("*", (req, res) => {
+app.get("*", (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 

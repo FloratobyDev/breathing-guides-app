@@ -39,7 +39,7 @@ function Dropdown({ label, values, onSubmit }: Props) {
       onClick={() => setShow(!show)}
     >
       <div className="flex justify-between items-center font-kodchasan">
-        <p className="text-xs md:text-sm font-semibold capitalize">{combinedLabels || label}</p>
+        <p className="text-xs lg:text-sm font-semibold capitalize">{combinedLabels || label}</p>
         <svg
           className={svgClass}
           width="10"
