@@ -95,8 +95,8 @@ function Main() {
   );
 
   return (
-    <div className=" bg-primary min-h-screen flex">
-      <div className="sticky h-screen top-0 bg-background p-12 hidden lg:flex flex-col">
+    <div data-testid="render-test" className=" bg-primary min-h-screen flex">
+      <div data-testid="sidebar-one" className="sticky h-screen top-0 bg-background p-12 hidden lg:flex flex-col">
         <Sidebar
           techniques={filteredTechniques}
           selectedTechnique={selectedTechnique}
@@ -111,7 +111,7 @@ function Main() {
           handleOpen={handleOpen}
         />
       )}
-      <div className={drawerClass}>
+      <div data-testid="sidebar-two" className={drawerClass}>
         <svg
           onClick={handleOpen}
           className="self-start cursor-pointer"

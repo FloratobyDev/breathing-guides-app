@@ -34,9 +34,11 @@ function Dropdown({ label, values, onSubmit }: Props) {
 
   return (
     <div
+      data-testid={label}
       ref={divRef}
       className="rounded-md bg-primary relative hover:darken px-4 py-2 cursor-pointer select-none"
       onClick={() => setShow(!show)}
+      role="button"
     >
       <div className="flex justify-between items-center font-kodchasan">
         <p className="text-xs lg:text-sm font-semibold capitalize">{combinedLabels || label}</p>
@@ -55,7 +57,7 @@ function Dropdown({ label, values, onSubmit }: Props) {
         </svg>
       </div>
       {show && (
-        <div className="absolute top-9 rounded-md shadow-md inset-x-0 bg-primary p-1 z-10 my-1">
+        <div data-testid="dropdown-values" className="absolute top-9 rounded-md shadow-md inset-x-0 bg-primary p-1 z-10 my-1">
           {values.map((value) => {
             const pClasses = classNames(
               "px-2 py-1.5 my-0.5 rounded-md hover:bg-secondary hover:text-primary cursor-pointer font-kodchasan text-xs md:text-sm capitalize",

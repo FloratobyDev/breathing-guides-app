@@ -25,15 +25,13 @@ function TechniqueInfo({
       </div>
       <div className="p-6 md:py-12 flex flex-col gap-y-4 md:mx-auto md:w-[80%]">
         <Label label="NAME">
-          <p className="text-xs md:text-lg font-kodchasan text-background">
+          <p data-testid="technique-name" className="text-xs md:text-lg font-kodchasan text-background">
             {selectedTechnique.technique_name}
           </p>
         </Label>
         <Label label="DESCRIPTION">
-          <p className="text-xs md:text-lg font-kodchasan text-background">
-            Active Inhalation and Passive Exhalation is a breathing technique
-            that emphasizes a strong and deliberate inhalation followed by a
-            relaxed and effortless exhalation.
+          <p data-testid="technique-description" className="text-xs md:text-lg font-kodchasan text-background">
+            {selectedTechnique.technique_description}
           </p>
         </Label>
         <Label label="HOW TO PERFORM">

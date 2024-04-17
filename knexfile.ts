@@ -1,4 +1,7 @@
 import type { Knex } from "knex";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // Update with your config settings.
 
@@ -9,7 +12,23 @@ const config: { [key: string]: Knex.Config } = {
       host: "localhost",
       user: "postgres",
       password: "",
-      database: "breathing_app_db",
+      database: process.env.DEV_DB_URL,
+    },
+    migrations: {
+      directory: __dirname + "/backend/migrations",
+    },
+    seeds: {
+      directory: __dirname + "/backend/seeds",
+    },
+  },
+
+  test: {
+    client: "postgresql",
+    connection: {
+      host: "localhost",
+      user: "postgres",
+      password: "",
+      database: process.env.TEST_DB_URL,
     },
     migrations: {
       directory: __dirname + "/backend/migrations",
@@ -22,7 +41,7 @@ const config: { [key: string]: Knex.Config } = {
   production: {
     client: "postgresql",
     connection: {
-      connectionString: process.env.INTERNAL_DB,
+      connectionString: process.env.PROD_DB_URL,
     },
     migrations: {
       directory: __dirname + "/packages/server/migrations",

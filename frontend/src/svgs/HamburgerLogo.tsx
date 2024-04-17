@@ -7,6 +7,7 @@ type HamburgerLogoProps = {
 function HamburgerLogo({ onClick }: HamburgerLogoProps) {
   return (
     <svg
+      data-testid="hamburger-logo"
       onClick={onClick}
       width="30"
       height="18"

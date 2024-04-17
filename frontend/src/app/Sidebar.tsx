@@ -104,7 +104,7 @@ function Sidebar({
         />
       </div>
       <div className="bg-primary rounded-md text-xs md:text-[16px] flex flex-col overflow-auto justify-between flex-1">
-        <div className="overflow-auto px-2 py-2 ">
+        <div data-testid="techniques-container" className="overflow-auto px-2 py-2 ">
           {techniques.map((technique) => {
             const techniqueClass = classNames(
               "p-2 rounded-md cursor-pointer text-background",
