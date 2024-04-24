@@ -16,6 +16,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+
+  console.log('Sample log message from App.tsx');
+  
   useEffect(() => {
     axios.get("/api/techniques").then((response) => {
       console.log(response.data);
